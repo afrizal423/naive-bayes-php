@@ -32,7 +32,7 @@ $koneksi = mysqli_connect("localhost","root","","nb");
 	}
 	//print_r(array_values($allclass));
 	//echo json_encode($allclass);
-	// mencari probabilitas class
+	// mencari probabilitas masing-masing class
 	foreach($allclass as $c=>$p)
 	{
 		$Pc[$c] = round($p/$C,4);
@@ -45,7 +45,7 @@ $koneksi = mysqli_connect("localhost","root","","nb");
 	{
 		foreach($X as $x=>$y)
 		{
-			
+			//menghitung P (data / kelas)
 			$i = mysqli_query($koneksi,"select count(*) as num from ".$table." where ".$n."='".$c."' AND ".$x."='".$y."'");
 			$j = mysqli_fetch_array($i);
 	//	print_r(array_values($j));
